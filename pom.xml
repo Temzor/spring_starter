@@ -6,14 +6,26 @@
 
     <groupId>com.spring_starter</groupId>
     <packaging>jar</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <artifactId>spring_starter</artifactId>
     <version>1.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -34,6 +46,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>5.3.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
         </dependency>
     </dependencies>
 
