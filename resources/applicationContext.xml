@@ -6,7 +6,11 @@
 
     <bean id = "myPet"
     class="com.spring.introduction.ioc.Dog">
+    </bean>
 
+    <bean id = "myPerson"
+    class="com.spring.introduction.di.Person">
+        <constructor-arg ref="myPet"/>
     </bean>
 
 </beans>
