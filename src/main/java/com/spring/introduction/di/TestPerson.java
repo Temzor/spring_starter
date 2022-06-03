@@ -13,5 +13,7 @@ public class TestPerson {
         Person person = new Person(pet);
         person.callYourPet();
 
+        context.close();
+
     }
 }
