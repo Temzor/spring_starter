@@ -1,4 +1,4 @@
-package com.spring.introduction;
+package com.spring.introduction.ioc;
 
 public class Cat implements Pet {
     @Override
