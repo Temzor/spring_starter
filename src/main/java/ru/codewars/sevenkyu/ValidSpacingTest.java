@@ -1,4 +1,4 @@
-package ru.codewars.sevenKyu;
+package ru.codewars.sevenkyu;
 
 import org.junit.jupiter.api.Test;
 

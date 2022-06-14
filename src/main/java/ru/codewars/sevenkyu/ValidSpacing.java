@@ -1,4 +1,4 @@
-package ru.codewars.sevenKyu;
+package ru.codewars.sevenkyu;
 
 public class ValidSpacing {
     public static boolean validSpacing(String s) {
