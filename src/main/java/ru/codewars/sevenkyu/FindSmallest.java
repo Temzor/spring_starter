@@ -1,24 +1,15 @@
 package ru.codewars.sevenkyu;
 
+import java.util.Objects;
+
 public class FindSmallest {
     public static int findSmallest(final int[] numbers, final String toReturn) {
-        int result = 0;
-        int value = numbers[0];
-        if (toReturn.equals("index")) {
-            for (int i = 0; i < numbers.length; i++) {
-                if (numbers[i] < value) {
-                    result = i;
-                    value = numbers[i];
-                }
-            }
-        } else {
-            for (int number : numbers) {
-                if (number < value) {
-                    result = number;
-                    value = number;
-                }
+        int lowest = 0;
+        for (int i = 1; i < numbers.length; ++i) {
+            if (numbers[i] < numbers[lowest]) {
+                lowest = i;
             }
         }
-        return result;
+        return (Objects.equals(toReturn, "index")) ? lowest : numbers[lowest];
     }
 }
