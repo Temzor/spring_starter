@@ -1,40 +1,33 @@
 package ru.codewars.sevenkyu.theoffice;
 
+import java.util.Arrays;
+import java.util.Map;
+
 public class TheOffice {
     public static String boredom(Person[] staff) {
-        int counter = 0;
-        for (Person person : staff) {
-            switch (person.department) {
-                case "accounts":
-                    counter += 1;
-                    break;
-                case "finance":
-                    counter += 2;
-                    break;
-                case "canteen":
-                    counter += 10;
-                    break;
-                case "regulation":
-                    counter += 3;
-                    break;
-                case "trading":
-                case "change":
-                    counter += 6;
-                    break;
-                case "IS":
-                    counter += 8;
-                    break;
-                case "retail":
-                    counter += 5;
-                    break;
-                case "cleaning":
-                    counter += 4;
-                    break;
-                default:
-                    counter += 25;
-                    break;
-            }
+        Map<String, Integer> teams = Map.of(
+                "accounts", 1,
+                "finance", 2,
+                "canteen", 10,
+                "regulation", 3,
+                "trading", 6,
+                "change", 6,
+                "IS", 8,
+                "retail", 5,
+                "cleaning", 4,
+                "pissing about", 25
+        );
+
+        int result = Arrays.stream(staff)
+                .mapToInt(s -> teams.get(s.department))
+                .sum();
+
+        if (result <= 80) {
+            return "kill me now";
+        } else if (result < 100) {
+            return "i can handle this";
+        } else {
+            return "party time!!";
         }
-        return counter <= 80 ? "kill me now" : counter < 100 ? "i can handle this" : "party time!!";
     }
 }
