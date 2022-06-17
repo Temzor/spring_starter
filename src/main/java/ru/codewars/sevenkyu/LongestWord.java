@@ -1,17 +1,12 @@
 package ru.codewars.sevenkyu;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class LongestWord {
     public static String longestWord(String wordString) {
-        int length = 0;
-        String result = "";
         String[] split = wordString.split(" ");
-        for (String s : split) {
-            if (s.length() > length) {
-                result = s;
-            }
-        }
-        return result;
+        Arrays.sort(split, Comparator.comparingInt(String::length));
+        return split[split.length - 1];
     }
 }
