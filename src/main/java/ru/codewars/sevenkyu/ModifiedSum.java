@@ -1,14 +1,9 @@
 package ru.codewars.sevenkyu;
 
+import java.util.Arrays;
+
 public class ModifiedSum {
     public static int modifiedSum(int[] array, int power) {
-        int sumOne = 0;
-        int sumTwo = 0;
-
-        for (int i : array) {
-            sumOne += Math.pow(i, power);
-            sumTwo += i;
-        }
-        return  sumOne - sumTwo;
+        return Arrays.stream(array).map(x -> (int) Math.pow(x, power) - x).sum();
     }
 }
