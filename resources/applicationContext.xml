@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="myApp.properties"/>
 
     <bean id="myPet"
           class="com.spring.introduction.ioc.Dog">
@@ -12,8 +17,8 @@
           class="com.spring.introduction.di.Person">
         <property name="pet" ref="myPet"/>
 
-        <property name="surname" value="Kapustin"/>
-        <property name="age" value="33"/>
+        <property name="surname" value="${person.surname}"/>
+        <property name="age" value="${person.age}"/>
     </bean>
 
 </beans>
