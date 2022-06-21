@@ -1,22 +1,26 @@
 package ru.codewars.sevenkyu;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class InArray {
     public static String[] inArray(String[] array1, String[] array2) {
-        ArrayList<String> strings = new ArrayList<>();
+        Set<String> strings = new TreeSet<>();
 
-        for (int i = 0; i < array1.length; i++) {
-            for (int j = 0; j < array2.length; j++) {
-                if (array2[j].contains(array1[i])) {
-                    strings.add(array1[i]);
+        for (String s : array1) {
+            for (String value : array2) {
+                if (value.contains(s)) {
+                    strings.add(s);
                 }
 
             }
         }
-        Object[] strings1 = strings.stream().distinct().toArray();
 
-        return Arrays.copyOf(strings1, strings1.length, String[].class);
+        for (String string : strings) {
+            System.out.println(string);
+        }
+
+
+
+        return strings.toArray(new String[0]);
     }
 }
