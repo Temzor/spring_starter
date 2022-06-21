@@ -4,22 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="myPetDog"
+    <bean id="myPet"
           class="com.spring.introduction.ioc.Dog">
     </bean>
 
-    <bean id="myPetCat"
-          class="com.spring.introduction.ioc.Cat">
-    </bean>
-
-    <bean id="myPersonDog"
+    <bean id="myPerson"
           class="com.spring.introduction.di.Person">
-        <property name="pet" ref="myPetDog"/>
-    </bean>
+        <property name="pet" ref="myPet"/>
 
-    <bean id="myPersonCat"
-          class="com.spring.introduction.di.Person">
-        <property name="pet" ref="myPetCat"/>
+        <property name="surname" value="Kapustin"/>
+        <property name="age" value="33"/>
     </bean>
 
 </beans>
