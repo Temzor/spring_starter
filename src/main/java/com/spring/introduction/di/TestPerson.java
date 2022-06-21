@@ -1,6 +1,5 @@
 package com.spring.introduction.di;
 
-import com.spring.introduction.ioc.Pet;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestPerson {
@@ -8,10 +7,12 @@ public class TestPerson {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Person person = context.getBean("myPerson", Person.class);
-        person.callYourPet();
+        Person personDog = context.getBean("myPersonDog", Person.class);
+        personDog.callYourPet();
+
+        Person personCat = context.getBean("myPersonCat", Person.class);
+        personCat.callYourPet();
 
         context.close();
-
     }
 }
