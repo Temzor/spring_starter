@@ -14,12 +14,12 @@
 
     <bean id="myPersonDog"
           class="com.spring.introduction.di.Person">
-        <constructor-arg ref="myPetDog"/>
+        <property name="pet" ref="myPetDog"/>
     </bean>
 
     <bean id="myPersonCat"
           class="com.spring.introduction.di.Person">
-        <constructor-arg ref="myPetCat"/>
+        <property name="pet" ref="myPetCat"/>
     </bean>
 
 </beans>
