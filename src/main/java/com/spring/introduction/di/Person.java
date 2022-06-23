@@ -1,7 +1,9 @@
 package com.spring.introduction.di;
 
 import com.spring.introduction.ioc.Pet;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Person {
     private Pet pet;
     private String surname;
