@@ -1,9 +1,10 @@
 package com.spring.introduction.di;
 
 import com.spring.introduction.ioc.Pet;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("personBean")
 public class Person {
     private Pet pet;
     private String surname;
@@ -27,14 +28,16 @@ public class Person {
         this.age = age;
     }
 
+    @Autowired
     public Person(Pet pet) {
         System.out.println("Person bean is created");
         this.pet = pet;
     }
 
-    public Person() {
-        System.out.println("Person bean is created");
-    }
+
+//    public Person() {
+//        System.out.println("Person bean is created");
+//    }
 
     public void setPet(Pet pet) {
         System.out.println("Class Person set Pet.");
