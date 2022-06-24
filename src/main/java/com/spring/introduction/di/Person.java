@@ -35,12 +35,19 @@ public class Person {
     }
 
 
-//    public Person() {
-//        System.out.println("Person bean is created");
-//    }
+    public Person() {
+        System.out.println("Person bean is created");
+    }
+
 
     public void setPet(Pet pet) {
         System.out.println("Class Person set Pet.");
+        this.pet = pet;
+    }
+
+    @Autowired
+    public void anyMethodTest(Pet pet) {
+        System.out.println("Class Person anyMethodTest.");
         this.pet = pet;
     }
 
