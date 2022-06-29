@@ -1,8 +1,7 @@
 package com.spring.introduction.ioc;
 
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 
-@Component
 public class Cat implements Pet {
     public Cat() {
         System.out.println("Cat bean is created");
