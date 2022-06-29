@@ -1,11 +1,14 @@
 package com.spring.introduction.di;
 
 import com.spring.introduction.ioc.Pet;
+import org.springframework.beans.factory.annotation.Value;
 
 
 public class Person {
     private Pet pet;
+    @Value("${person.surname}")
     private String surname;
+    @Value("${person.age}")
     private int age;
 
     public String getSurname() {
