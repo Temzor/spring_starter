@@ -8,22 +8,31 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class LoggingAndSecurityAspect {
-    @Pointcut("execution( public * get*())")
-    private void allGetMethods() {
+
+    @Pointcut("execution(* com.aop.library.UniLibrary.get*())")
+    private void allGetMethodsFromUniLibrary() {
     }
 
-    @Before("allGetMethods()")
+    @Pointcut("execution(* com.aop.library.UniLibrary.return*())")
+    private void allReturnMethodsFromUniLibrary() {
+    }
+
+    @Pointcut("allGetMethodsFromUniLibrary() || allReturnMethodsFromUniLibrary()")
+    private void allGetAndReturnMethodsFromUniLibrary() {
+    }
+
+    @Before("allGetMethodsFromUniLibrary()")
     public void beforeGetLoggingAdvice() {
-        System.out.println("beforeGetLoggingAdvice: попытка получить книгу/журнал.");
+        System.out.println("beforeGetLoggingAdvice: writing Log #1");
     }
 
-    @Before("execution( * returnBook())")
+    @Before("allReturnMethodsFromUniLibrary()")
     public void beforeReturnLoggingAdvice() {
-        System.out.println("beforeReturnLoggingAdvice: попытка вернуть книгу/журнал");
+        System.out.println("beforeReturnLoggingAdvice: writing Log #2");
     }
 
-    @Before("allGetMethods()")
-    public void beforeGetSecurityAdvice() {
-        System.out.println("beforeGetSecurityAdvice: проверка прав на получения книги/жкрнала.");
+    @Before("allGetAndReturnMethodsFromUniLibrary()")
+    public void beforeGetAndReturnLoggingAdvice() {
+        System.out.println("beforeGetAndReturnLoggingAdvice: writing Log #3");
     }
 }
