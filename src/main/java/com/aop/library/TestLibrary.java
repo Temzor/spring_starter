@@ -1,5 +1,6 @@
 package com.aop.library;
 
+import com.aop.config.SpringConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class TestLibrary {
