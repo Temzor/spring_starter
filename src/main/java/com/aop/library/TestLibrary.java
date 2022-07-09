@@ -7,8 +7,11 @@ public class TestLibrary {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         UniLibrary uniLibrary = context.getBean("uniLibrary", UniLibrary.class);
+        Book book = context.getBean("book", Book.class);
+
         uniLibrary.getBook();
-        uniLibrary.getMagazine();
+        uniLibrary.addBook("Dmitrii", book);
+        uniLibrary.addMagazine();
 
         context.close();
     }

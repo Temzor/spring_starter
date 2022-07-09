@@ -10,8 +10,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Order(20)
 public class SecurityAspect {
-    @Before("com.aop.library.aspects.PointcutClass.allGetMethods()")
+    @Before("com.aop.library.aspects.PointcutClass.allAddMethods()")
     public void beforeGetLoggingAdvice() {
-        System.out.println("beforeGetLoggingAdvice: логирование попытки получить книгу/журнал.");
+        System.out.println("beforeAddLoggingAdvice: логирование попытки получить книгу/журнал.");
+        System.out.println("-----------------------------------------------------");
     }
 }
