@@ -1,4 +1,4 @@
-package ru.codewars.pizza;
+package com.reflection.examples.pizza;
 
 public class PizzaShop {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ru.codewars.pizza;
+package com.reflection.examples.pizza;
 
 public class Pizza implements AddTopic {
     @Override
