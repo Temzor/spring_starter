@@ -1,17 +1,11 @@
 package ru.codewars.sevenkyu;
 
+import static java.util.stream.LongStream.of;
+import static java.util.stream.LongStream.rangeClosed;
+
 public class NumbersWithDigitInside {
-    public static long[] numbersWithDigitInside(long x, long d) {
-        long count = 0, sum = 0, prod = 0;
-
-        for (long i = 1; i <= x; i++) {
-            if (String.valueOf(i).contains(String.valueOf(d))) {
-                count++;
-                sum += i;
-                prod = prod == 0 ? i : prod * i;
-            }
-        }
-
-        return new long[]{count, sum, prod};
+    static long[] numbersWithDigitInside(long x, long d) {
+        long[] nums = rangeClosed(1, x).filter(i -> ("" + i).contains("" + d)).toArray();
+        return new long[] {nums.length, of(nums).sum(), of(nums).reduce((a, b) -> a * b).orElse(0L)};
     }
 }
