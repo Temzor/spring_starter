@@ -14,14 +14,15 @@ public class AroundLoggingAspect {
 
         System.out.println("aroundReturnBookLoggingAdvice: в библиотеку пытаются вернуть книгу");
 
-        long begin = System.currentTimeMillis();
-        Object targetMethodResult = proceedingJoinPoint.proceed();
-        targetMethodResult = "Белый клык.";
-        long end = System.currentTimeMillis();
+        Object targetMethodResult = null;
+        try {
+            targetMethodResult = proceedingJoinPoint.proceed();
+        } catch (Exception e) {
+            System.out.println("aroundReturnBookLoggingAdvice: было выведено исключение" + e);
+            throw e;
+        }
 
         System.out.println("aroundReturnBookLoggingAdvice: в библиотеку успешно вернули книгу");
-
-        System.out.println("aroundReturnBookLoggingAdvice: метод returnBook выполнил работу за " + (end - begin) + " миллисекунд.");
 
         return targetMethodResult;
     }

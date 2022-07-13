@@ -15,7 +15,6 @@ public class AroundTest {
         String bookName = uniLibrary.returnBook();
         System.out.println("В библиотеку вернули книгу " + bookName);
 
-
         context.close();
         System.out.println("Method main ends.");
     }
