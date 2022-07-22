@@ -14,11 +14,13 @@ public class TestHibernate {
                 .buildSessionFactory()) {
 
             Session session = factory.getCurrentSession();
-            Employee employee = new Employee("Dmitrii", "Kapustin", "IT", 100_000);
+            Employee employee = new Employee("Alexandr", "Smirnov", "Sales", 200_000);
 
             session.beginTransaction();
             session.save(employee);
             session.getTransaction().commit();
+
+            System.out.println("Done.");
         }
     }
 }
