@@ -1,32 +1,75 @@
 package com.test.skillUp;
 
 public class ThreadSynchronized2 {
-    static int counter = 0;
+    static final Object lock = new Object();
 
-    public static synchronized void increment() {
-        counter++;
+    void mobileCall() {
+        synchronized (lock) {
+            System.out.println("Mobile call starts");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Mobile call ends");
+        }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        Thread thread1 = new Thread(new Runnable2());
-        Thread thread2 = new Thread(new Runnable2());
+    void skypeCall() {
+        synchronized (lock) {
+            System.out.println("SkypeCall call starts");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("SkypeCall call ends");
+        }
+    }
+
+    void whatsappCall() {
+        synchronized (lock) {
+            System.out.println("WhatsApp call starts");
+            try {
+                Thread.sleep(7000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("WhatsApp call ends");
+        }
+    }
+
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new RunnableImplMobile());
+        Thread thread2 = new Thread(new RunnableImplSkype());
+        Thread thread3 = new Thread(new RunnableImplWhatsApp());
 
         thread1.start();
         thread2.start();
-
-        thread1.join();
-        thread2.join();
-
-        System.out.println(counter);
+        thread3.start();
     }
 }
 
-class Runnable2 implements Runnable {
+class RunnableImplMobile implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 100; i++) {
-            ThreadSynchronized2.increment();
-        }
+        new ThreadSynchronized2().mobileCall();
+    }
+}
+
+class RunnableImplSkype implements Runnable {
+
+    @Override
+    public void run() {
+        new ThreadSynchronized2().skypeCall();
+    }
+}
+
+class RunnableImplWhatsApp implements Runnable {
+
+    @Override
+    public void run() {
+        new ThreadSynchronized2().whatsappCall();
     }
 }

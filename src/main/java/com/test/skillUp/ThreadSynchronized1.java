@@ -14,14 +14,14 @@ public class ThreadSynchronized1 {
     }
 }
 
-class Counter {
+class Counter1 {
     static int count = 0;
 }
 
 class MyRunnableImpl1 implements Runnable {
     public synchronized void increment() {
-        Counter.count++;
-        System.out.print(Counter.count + " ");
+        Counter1.count++;
+        System.out.print(Counter1.count + " ");
     }
 
     @Override
