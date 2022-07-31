@@ -14,8 +14,9 @@ import java.util.*;
  *   Please attach code files to email - skhisamov@fitechsource.com
  */
 
-public class Test {
+public class TestStandard {
     public static void main(String[] args) throws TestException {
+        long start = System.currentTimeMillis();
         Set<Double> res = new HashSet<>();
 
         for (int i = 0; i < TestConsts.N; i++) {
@@ -23,5 +24,7 @@ public class Test {
         }
 
         System.out.println(res);
+        long end = System.currentTimeMillis();
+        System.out.println(end - start + " ms.");
     }
 }
