@@ -23,10 +23,12 @@ public class Test2 {
         for (int i = 0; i < TestConsts.MAX_THREADS; i++) {
             Thread thread = new JThread();
             thread.start();
+            if (i == 0) {
             try {
                 thread.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
             }
         }
         System.out.println(Test2.res);
