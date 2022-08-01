@@ -1,6 +1,7 @@
 package com.test;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Should be improved to reduce calculation time.
@@ -14,22 +15,21 @@ import java.util.*;
  *   Please attach code files to email - skhisamov@fitechsource.com
  */
 
-public class Test2 {
+public class Test3 {
     static Set<Double> res = new HashSet<>();
 
     public static void main(String[] args)  {
         long start = System.currentTimeMillis();
         System.out.println("Main thread started...");
         for (int i = 0; i < TestConsts.MAX_THREADS; i++) {
-            Thread thread = new JThread();
-            thread.start();
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            Thread thread = new Thread(new JThread1());
+            for (int j = i; j < i + 1; j++) {
+                thread.start();
             }
         }
+
         System.out.println(Test2.res);
+        System.out.println(Test2.res.size());
         System.out.println("Main thread finished...");
         long end = System.currentTimeMillis();
         System.out.println(end - start + " ms.");
@@ -38,8 +38,7 @@ public class Test2 {
 }
 
 
-
-class JThread extends Thread {
+class JThread1 implements Runnable {
 
     @Override
     public void run() {
