@@ -1,11 +1,11 @@
-package com.hibernate_test;
+package com.hibernatetest;
 
-import com.hibernate_test.entity.Employee;
+import com.hibernatetest.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class TestDeletedHQL {
+public class TestRequestSQL {
     public static void main(String[] args) {
         try (SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -13,16 +13,18 @@ public class TestDeletedHQL {
                 .buildSessionFactory()) {
 
             Session session = factory.getCurrentSession();
+            Employee employee = new Employee("Oleg", "Sidorov", "HR", 700_000);
+
             session.beginTransaction();
+            session.save(employee);
 
-            Employee employee = session.get(Employee.class, 1);
-            session.delete(employee);
-
-            session.createQuery("delete Employee WHERE name = 'Alexandr'").executeUpdate();
-
+            int myId = employee.getId();
+            Employee employee1 = session.get(Employee.class, myId);
             session.getTransaction().commit();
-            System.out.println("Done.");
 
+            System.out.println(employee1);
+
+            System.out.println("Done.");
         }
     }
 }

@@ -1,11 +1,9 @@
-package com.hibernate_test;
+package com.hibernatetest;
 
-import com.hibernate_test.entity.Employee;
+import com.hibernatetest.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import java.util.List;
 
 public class TestRequestHQL {
     public static void main(String[] args) {

@@ -1,11 +1,12 @@
-package com.hibernate_test;
+package com.hibernatetest;
 
-import com.hibernate_test.entity.Employee;
+
+import com.hibernatetest.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class TestUpdateHQL {
+public class TestHibernate {
     public static void main(String[] args) {
         try (SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -13,19 +14,13 @@ public class TestUpdateHQL {
                 .buildSessionFactory()) {
 
             Session session = factory.getCurrentSession();
+            Employee employee = new Employee("Alexandr", "Ivanov", "IT", 600_000);
+
             session.beginTransaction();
-
-            Employee employee = session.get(Employee.class, 1);
-            employee.setSalary(150_000);
-
-
-            session.createQuery("update Employee set salary = 100000 where name = 'Alexandr'")
-                    .executeUpdate();
-
-
+            session.persist(employee);
             session.getTransaction().commit();
-            System.out.println("Done.");
 
+            System.out.println("Done.");
         }
     }
 }

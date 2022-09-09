@@ -1,9 +1,10 @@
-package com.hibernate_test.entity;
+package com.hibernatetest.entity;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="employees")
+@Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,13 +35,13 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", department='" + department + '\'' +
-                ", salary=" + salary +
-                '}';
+        return "Employee{"
+               + "id=" + id
+               + ", name='" + name + '\''
+               + ", surname='" + surname + '\''
+               + ", department='" + department + '\''
+               + ", salary=" + salary
+               + '}';
     }
 
     public int getId() {
