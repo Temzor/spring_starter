@@ -1,4 +1,4 @@
-package com.hibernatetest.entity;
+package com.hibernatetest2.entity;
 
 
 import jakarta.persistence.*;
@@ -7,8 +7,9 @@ import jakarta.persistence.*;
 @Table(name = "details")
 public class Detail {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @SequenceGenerator(name = "details_seq", sequenceName = "details_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "details_seq")
     private int id;
 
     @Column(name = "city")
