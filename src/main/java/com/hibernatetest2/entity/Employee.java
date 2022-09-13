@@ -1,15 +1,15 @@
 package com.hibernatetest2.entity;
 
 
-import com.hibernatetest.entity.Detail;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "employees")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @SequenceGenerator(name = "employees_seq", sequenceName = "employees_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employees_seq")
     private int id;
 
     @Column(name = "name")
@@ -25,7 +25,7 @@ public class Employee {
     private int salary;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "detail_id")
+    @JoinColumn(name = "details_id")
     private Detail empDetail;
 
     public Employee() {
@@ -41,12 +41,12 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{"
-               + "id=" + id
-               + ", name='" + name + '\''
-               + ", surname='" + surname + '\''
-               + ", department='" + department + '\''
-               + ", salary=" + salary
-               + '}';
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", surname='" + surname + '\''
+                + ", department='" + department + '\''
+                + ", salary=" + salary
+                + '}';
     }
 
     public int getId() {
@@ -87,5 +87,13 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Detail getEmpDetail() {
+        return empDetail;
+    }
+
+    public void setEmpDetail(Detail empDetail) {
+        this.empDetail = empDetail;
     }
 }
