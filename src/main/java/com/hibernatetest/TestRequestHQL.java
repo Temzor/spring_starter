@@ -1,3 +1,4 @@
+/**
 package com.hibernatetest;
 
 import com.hibernatetest.entity.Employee;
@@ -44,3 +45,4 @@ public class TestRequestHQL {
         }
     }
 }
+*/
