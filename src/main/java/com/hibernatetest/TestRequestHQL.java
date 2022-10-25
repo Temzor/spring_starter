@@ -1,4 +1,4 @@
-/**
+
 package com.hibernatetest;
 
 import com.hibernatetest.entity.Employee;
@@ -39,10 +39,8 @@ public class TestRequestHQL {
                 System.out.println(employee);
             }
 
-
             session.getTransaction().commit();
             System.out.println("Done.");
         }
     }
 }
-*/
