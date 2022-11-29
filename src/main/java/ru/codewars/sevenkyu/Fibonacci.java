@@ -1,25 +1,19 @@
 package ru.codewars.sevenkyu;
 
 public class Fibonacci {
-    public static long fibonacci(long max) {
-        if (max < 2) {
-            return 0;
-        }
+    public static long fibonacci(long limit) {
+        long elementOne = 1;
+        long elementTwo = 1;
+        long sum = 0;
 
-        long elementFirst = 0;
-        long elementSecond = 2;
-        long sum = elementFirst + elementSecond;
-
-        while (true) {
-            long elementThird = 4 * elementSecond + elementFirst;
-            if (elementThird >= max) {
-                break;
+        while (elementOne < limit) {
+            if (elementOne % 2 == 0) {
+                sum += elementOne;
             }
-
-            elementFirst = elementSecond;
-            elementSecond = elementThird;
-            sum += elementSecond;
+            long temp = elementOne;
+            elementOne = elementTwo;
+            elementTwo += temp;
         }
-        return (int) sum;
+        return sum;
     }
 }
