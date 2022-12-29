@@ -8,7 +8,7 @@ public class SubstringTest {
 
         for (String s : stringsFirstSplit) {
             for (String value : stringsSecondSplit) {
-                if (s.equals(value)) {
+                if (s.toLowerCase().equals(value.toLowerCase())) {
                     counter++;
                     if (counter > 1) {
                         break;
