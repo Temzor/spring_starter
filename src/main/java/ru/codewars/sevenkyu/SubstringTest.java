@@ -2,20 +2,11 @@ package ru.codewars.sevenkyu;
 
 public class SubstringTest {
     public static boolean substringTest(String str1, String str2) {
-        int counter = 0;
-        String[] stringsFirstSplit = str1.split("");
-        String[] stringsSecondSplit = str2.split("");
-
-        for (String s : stringsSecondSplit) {
-            for (String value : stringsFirstSplit) {
-                if (s.toLowerCase().equals(value.toLowerCase())) {
-                    counter++;
-                    if (counter > 1) {
-                        break;
-                    }
-                }
+        for (int i = 0; i < str2.length() - 1; i++) {
+            if (str1.toLowerCase().contains(str2.toLowerCase().substring(i, i + 2))) {
+                return true;
             }
         }
-        return counter > 1;
+        return false;
     }
 }
