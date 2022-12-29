@@ -15,5 +15,6 @@ class PerpendicularTest {
         assertThat(6).isEqualTo(Perpendicular.maxBisectors(5));
         assertThat(9).isEqualTo(Perpendicular.maxBisectors(6));
         assertThat(650).isEqualTo(Perpendicular.maxBisectors(51));
+        assertThat(582401689).isEqualTo(Perpendicular.maxBisectors(48266));
     }
 }
