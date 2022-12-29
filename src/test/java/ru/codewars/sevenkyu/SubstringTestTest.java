@@ -11,7 +11,16 @@ class SubstringTestTest {
     }
 
     @Test
+    public void shouldBeTrueSecond() {
+        assertThat(true).isEqualTo(SubstringTest.substringTest("BANANA", "banana"));
+    }
+    @Test
     public void shouldBeFalse() {
         assertThat(false).isEqualTo(SubstringTest.substringTest("Something", "Fun"));
+    }
+
+    @Test
+    public void shouldBeFalseSecond() {
+        assertThat(false).isEqualTo(SubstringTest.substringTest("ujNTKvjksi", "BrNPjuwZgx"));
     }
 }

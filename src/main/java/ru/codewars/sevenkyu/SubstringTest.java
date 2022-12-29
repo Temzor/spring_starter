@@ -6,8 +6,8 @@ public class SubstringTest {
         String[] stringsFirstSplit = str1.split("");
         String[] stringsSecondSplit = str2.split("");
 
-        for (String s : stringsFirstSplit) {
-            for (String value : stringsSecondSplit) {
+        for (String s : stringsSecondSplit) {
+            for (String value : stringsFirstSplit) {
                 if (s.toLowerCase().equals(value.toLowerCase())) {
                     counter++;
                     if (counter > 1) {
